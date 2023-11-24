@@ -18,7 +18,7 @@ logging.basicConfig(filename='ATM_app.log', level=logging.ERROR)
 
 def deposit(amount):
     global balance, transactions, operations_count
-    if amount % DEPOSIT_INCREMENT != 0 and amount > 0:
+    if amount % DEPOSIT_INCREMENT != 0 or amount <= 0:
         logging.error(f"Сумма пополнения должна быть кратной {DEPOSIT_INCREMENT} у.е. и больше 0")
         return
 
@@ -33,7 +33,7 @@ def deposit(amount):
 
 def withdraw(amount):
     global balance, transactions, operations_count
-    if amount % DEPOSIT_INCREMENT != 0 and amount > 0:
+    if amount % DEPOSIT_INCREMENT != 0 or amount <= 0:
         logging.error(f"Сумма снятия должна быть кратной {DEPOSIT_INCREMENT} у.е.")
         return
 
